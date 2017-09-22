@@ -31,8 +31,8 @@ class App extends Component {
                 <Animation
                     ref={animation => { this.animation = animation; }}
                     style={{
-                    width: 200,
-                    height: 200,
+                    width: 300,
+                    height: 300,
                     }}
                     source={require('./rey_updated.json')}
                 />
