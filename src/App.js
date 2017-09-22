@@ -3,8 +3,11 @@ import { View } from 'react-native';
 import firebase from 'firebase';
 import { Header } from './components/common';
 import LoginForm from './components/LoginForm';
+import Animation from 'lottie-react-native';
+import rey from './rey_updated.json';
 
 class App extends Component {
+      
     componentWillMount() {
         firebase.initializeApp({
             apiKey: 'AIzaSyDl1O_SdTKuITUVNy-LV3PST5wLvmwVUuo',
@@ -16,12 +19,25 @@ class App extends Component {
           });
     }
 
+    componentDidMount() {
+        this.animation.play();
+      }
+
     render() {
         return (
             <View>
                 <Header headerText="Authentication" />
                 <LoginForm />
+                <Animation
+                    ref={animation => { this.animation = animation; }}
+                    style={{
+                    width: 200,
+                    height: 200,
+                    }}
+                    source={require('./rey_updated.json')}
+                />
             </View>
+
         );
     }
 }
