@@ -5,11 +5,13 @@ import { Button, Card, CardSection, Input } from './common';
 
 
 class LoginForm extends Component {
-    state = { email: '', password: '', error: '' };
+    state = { email: '', password: '', error: '', loading: false };
 
     onButtonPress() {
         const { email, password } = this.state;
-        this.setState({ error: '' });
+
+        this.setState({ error: '', loading: true });
+
         firebase.auth().signInWithEmailAndPassword(email, password)
             .catch(() => {
                 firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -17,6 +19,18 @@ class LoginForm extends Component {
                         this.setState({ error: 'Authentication Failed.' });
                     });
             });
+    }
+
+    renderButton() {
+        if (this.state.loading) {
+            return <Spinner size="small" />;
+        }
+
+        return (
+            <Button onPress={this.onButtonPress.bind(this)}>
+                Log In
+            </Button>
+        );
     }
 
     render() {
@@ -43,9 +57,7 @@ class LoginForm extends Component {
                     {this.state.error}
                 </Text>
                 <CardSection>
-                    <Button onPress={this.onButtonPress.bind(this)}>
-                        Log In
-                    </Button>
+                    {this.renderButton()}
                 </CardSection>
             </Card>
         );
