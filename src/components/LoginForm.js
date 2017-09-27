@@ -3,8 +3,6 @@ import { Text } from 'react-native';
 import firebase from 'firebase';
 import { Button, Card, CardSection, Input, Spinner } from './common';
 
-//example user: 123@gmail.com pass: 123
-
 class LoginForm extends Component {
     state = { email: '', password: '', error: '', loading: false };
 

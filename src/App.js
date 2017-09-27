@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import firebase from 'firebase';
-import { Header, Button } from './components/common';
+import { Header, Button, CardSection } from './components/common';
 import LoginForm from './components/LoginForm';
-// import Animation from 'lottie-react-native';
-// import rey from './rey_updated.json';
 
 class App extends Component {
+    state = { loggedIn: false };
+    
     componentWillMount() {
         firebase.initializeApp({
             apiKey: 'AIzaSyDl1O_SdTKuITUVNy-LV3PST5wLvmwVUuo',
@@ -26,34 +26,26 @@ class App extends Component {
         });
     }
 
+
     renderContent() {
         if (this.state.loggedIn) {
             return (
-                <Button>
+                <CardSection>
+                    <Button>
                     Log Out
-                </Button>
+                    </Button>
+                </CardSection>
+                
             );
         }
-
         return <LoginForm />;
     }
-    // componentDidMount() {
-    //     this.animation.play();
-    //   }
 
     render() {
         return (
             <View>
                 <Header headerText='Authentication' />
                 {this.renderContent()}
-                {/* <Animation
-                    ref={animation => { this.animation = animation; }}
-                    style={{
-                    width: 300,
-                    height: 300,
-                    }}
-                    source={require('./rey_updated.json')}
-                /> */}
             </View>
 
         );
