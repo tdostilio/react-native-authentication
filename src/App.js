@@ -5,7 +5,7 @@ import { Header, Button, CardSection } from './components/common';
 import LoginForm from './components/LoginForm';
 
 class App extends Component {
-    state = { loggedIn: false };
+    state = { loggedIn: null };
     
     componentWillMount() {
         firebase.initializeApp({
@@ -28,17 +28,19 @@ class App extends Component {
 
 
     renderContent() {
-        if (this.state.loggedIn) {
-            return (
+        switch (this.state.loggedIn) {
+            case true:
+                return (
                 <CardSection>
                     <Button>
-                    Log Out
+                        Log Out
                     </Button>
-                </CardSection>
-                
-            );
+                </CardSection>);
+            case false:
+                return <LoginForm />;
+
+            default:
         }
-        return <LoginForm />;
     }
 
     render() {
