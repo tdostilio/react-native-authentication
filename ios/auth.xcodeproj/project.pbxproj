@@ -580,6 +580,7 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* authTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
+				EF0EBD5E1F7D56670005D976 /* Recovered References */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -604,6 +605,15 @@
 				EF68B4111F7457D80050C2DE /* libRCTBlob-tvOS.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		EF0EBD5E1F7D56670005D976 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				1A8FE745D9054DA3985870F3 /* libLottieReactNative.a */,
+				24A35F78DD0647E59120EF2C /* libLottie.a */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		EF68B4061F7457D80050C2DE /* Products */ = {
@@ -1254,6 +1264,7 @@
 					"$(SRCROOT)/../node_modules/lottie-ios/lottie-ios/Classes/**",
 				);
 				INFOPLIST_FILE = auth/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = "\\";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1276,6 +1287,7 @@
 					"$(SRCROOT)/../node_modules/lottie-ios/lottie-ios/Classes/**",
 				);
 				INFOPLIST_FILE = auth/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = "\\";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
